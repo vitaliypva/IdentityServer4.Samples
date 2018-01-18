@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 using IdentityServer4.Events;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Identity;
+using IdentityServerWithAspNetIdentity.Models;
 using IdentityServer4.Extensions;
 using System.Security.Principal;
 using System.Security.Claims;
@@ -18,7 +19,6 @@ using IdentityModel;
 using System.Linq;
 using System;
 using System.Collections.Generic;
-using IdentityServerWithAspNetIdentity.Models;
 
 namespace IdentityServer4.Quickstart.UI
 {
