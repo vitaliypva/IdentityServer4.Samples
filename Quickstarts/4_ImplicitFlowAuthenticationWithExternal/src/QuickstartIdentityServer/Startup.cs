@@ -28,8 +28,8 @@ namespace QuickstartIdentityServer
                 {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = "434483408261-55tc8n0cs4ff1fe21ea8df2o443v2iuc.apps.googleusercontent.com";
-                    options.ClientSecret = "3gcoTrEDPPJ0ukn_aYYT6PWo";
+                    options.ClientId = "434483408261-55tc8n0cs4ff1fe21ea8df2o443v2iuc.apps.googleusercontent.com";//"858971740851-dibfsmcco79a0d8uqa1h4qgt3tg2sn5p.apps.googleusercontent.com";//
+                    options.ClientSecret = "3gcoTrEDPPJ0ukn_aYYT6PWo";//"zi4OxhaMPKdL5XUmA6eRW0q9"; //
                 })
                 .AddOpenIdConnect("oidc", "OpenID Connect", options =>
                 {

@@ -6,6 +6,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
 using System.Security.Claims;
+using QuickstartIdentityServer.Extentions;
 
 namespace QuickstartIdentityServer
 {
@@ -18,6 +19,7 @@ namespace QuickstartIdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResourcesExtention.MyWebAppScope()
             };
         }
 
@@ -65,15 +67,17 @@ namespace QuickstartIdentityServer
                 {
                     ClientId = "mvc",
                     ClientName = "MVC Client",
+                    ClientSecrets = new List<Secret>(){new Secret() { Value = "ddddvvvv" } },
                     AllowedGrantTypes = GrantTypes.Implicit,
-
+                    RequireConsent = true,
                     RedirectUris = { "http://localhost:5002/signin-oidc" },
                     PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
 
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "MyWebAppScope"
                     }
                 }
             };
@@ -88,11 +92,14 @@ namespace QuickstartIdentityServer
                     SubjectId = "1",
                     Username = "alice",
                     Password = "password",
-
+                    
                     Claims = new List<Claim>
                     {
                         new Claim("name", "Alice"),
-                        new Claim("website", "https://alice.com")
+                        new Claim("website", "https://alice.com" ),
+                        new Claim("myclaim", "myclaimIDval"),
+                        new Claim("myclaim1", "myclaimIDval1"),
+                        new Claim("myclaim2", "myclaimIDval2"),
                     }
                 },
                 new TestUser
@@ -104,8 +111,10 @@ namespace QuickstartIdentityServer
                     Claims = new List<Claim>
                     {
                         new Claim("name", "Bob"),
-                        new Claim("website", "https://bob.com")
+                        new Claim("website", "https://bob.com"),
+                       
                     }
+
                 }
             };
         }

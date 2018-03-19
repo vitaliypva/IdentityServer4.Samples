@@ -28,7 +28,7 @@ namespace Api
         {
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

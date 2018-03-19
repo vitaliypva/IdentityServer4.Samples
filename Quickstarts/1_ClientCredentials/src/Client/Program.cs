@@ -40,7 +40,7 @@ namespace Client
             var client = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await client.GetAsync("http://localhost:5001/identity");
+            var response = await client.GetAsync("https://localhost:44389/Identity");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);
@@ -50,6 +50,8 @@ namespace Client
                 var content = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(JArray.Parse(content));
             }
+
+            Console.Read();
         }
     }
 }

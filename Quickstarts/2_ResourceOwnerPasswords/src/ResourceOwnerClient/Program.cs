@@ -50,6 +50,8 @@ namespace ResourceOwnerClient
                 var content = response.Content.ReadAsStringAsync().Result;
                 Console.WriteLine(JArray.Parse(content));
             }
+
+            Console.Read();
         }
     }
 }
