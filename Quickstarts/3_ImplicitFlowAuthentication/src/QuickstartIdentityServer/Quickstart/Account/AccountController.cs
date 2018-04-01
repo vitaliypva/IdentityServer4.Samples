@@ -67,7 +67,7 @@ namespace IdentityServer4.Quickstart.UI
                 return await ExternalLogin(vm.ExternalLoginScheme, returnUrl);
             }
 
-            return View(vm);
+            return View(vm/*release*/);
         }
 
         /// <summary>
