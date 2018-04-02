@@ -17,10 +17,11 @@ namespace QuickstartIdentityServer.Extentions
             /// <summary>
             /// Initializes a new instance of the <see cref="T:IdentityServer4.Models.IdentityResources.OpenId" /> class.
             /// </summary>
-            public MyWebAppScope()
+            /// <param name="s"></param>
+            public MyWebAppScope(string s)
             {
-                this.Name = "MyWebAppScope";
-                this.DisplayName = "My first Web Ap pScope";
+                this.Name = "MyWebAppScope" + s;
+                this.DisplayName = "My first Web Ap pScope " + s;
                 this.Required = false;
                 this.UserClaims.Add("myclaim1");
                 this.UserClaims.Add("myclaim2");

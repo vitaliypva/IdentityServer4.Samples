@@ -19,7 +19,8 @@ namespace QuickstartIdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                new IdentityResourcesExtention.MyWebAppScope()
+                new IdentityResourcesExtention.MyWebAppScope("1"),
+                new IdentityResourcesExtention.MyWebAppScope("2")
             };
         }
 
@@ -72,12 +73,12 @@ namespace QuickstartIdentityServer
                     RequireConsent = true,
                     RedirectUris = { "http://localhost:5002/signin-oidc" },
                     PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
-
+                    
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "MyWebAppScope"
+                        "MyWebAppScope2"
                     }
                 }
             };

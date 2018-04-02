@@ -18,6 +18,7 @@ namespace MvcClient
                 {
                     options.DefaultScheme = "Cookies";
                     options.DefaultChallengeScheme = "oidc";
+                    
                 })
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
@@ -26,7 +27,7 @@ namespace MvcClient
 
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
-                    options.Scope.Add("MyWebAppScope");
+                    options.Scope.Add("MyWebAppScope2");
                     //options.ClaimActions.Add(new CustomJsonClaimAction("myclaim", "myclaimValue",(x)=> x.ToString()));
 
                     options.ClientId = "mvc";
