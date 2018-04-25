@@ -6,6 +6,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
 using System.Security.Claims;
+using static QuickstartIdentityServer.Extentions.IdentityResourcesExtention;
 
 namespace QuickstartIdentityServer
 {
@@ -18,6 +19,7 @@ namespace QuickstartIdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new MyWebAppScope("_v2")
             };
         }
 
@@ -73,7 +75,8 @@ namespace QuickstartIdentityServer
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "MyWebAppScope_v2"
                     }
                 }
             };
@@ -93,6 +96,7 @@ namespace QuickstartIdentityServer
                     {
                         new Claim("name", "Alice"),
                         new Claim("website", "https://alice.com")
+
                     }
                 },
                 new TestUser

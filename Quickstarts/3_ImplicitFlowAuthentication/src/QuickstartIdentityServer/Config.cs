@@ -68,7 +68,7 @@ namespace QuickstartIdentityServer
                 {
                     ClientId = "mvc",
                     ClientName = "MVC Client",
-                    ClientSecrets = new List<Secret>(){new Secret() { Value = "ddddvvvv" } },
+                  //  ClientSecrets = new List<Secret>(){new Secret() { Value = "ddddvvvv" } },
                     AllowedGrantTypes = GrantTypes.Implicit,
                     RequireConsent = true,
                     RedirectUris = { "http://localhost:5002/signin-oidc" },

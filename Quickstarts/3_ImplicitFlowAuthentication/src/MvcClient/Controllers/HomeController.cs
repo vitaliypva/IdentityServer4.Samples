@@ -16,7 +16,7 @@ namespace MvcClient.Controllers
         public IActionResult Secure()
         {
             ViewData["Message"] = "Secure page.";
-
+            var v = User.Claims;
             return View();
         }
 

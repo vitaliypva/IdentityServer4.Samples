@@ -28,11 +28,11 @@ namespace MvcClient
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
                     options.Scope.Add("MyWebAppScope2");
-                    //options.ClaimActions.Add(new CustomJsonClaimAction("myclaim", "myclaimValue",(x)=> x.ToString()));
+                    
 
                     options.ClientId = "mvc";
-                    options.ClientSecret = "ddddvvvv";
-                    options.SaveTokens = true;
+                  //  options.ClientSecret = "ddddvvvv";
+                    options.SaveTokens = true;                    
                 });
         }
 

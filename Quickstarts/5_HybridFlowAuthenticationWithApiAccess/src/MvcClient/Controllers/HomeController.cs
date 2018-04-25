@@ -38,6 +38,8 @@ namespace MvcClient.Controllers
         {
             var tokenClient = new TokenClient("http://localhost:5000/connect/token", "mvc", "secret");
             var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+          //  var tokenClient = new TokenClient("http://localhost:5000/connect/token", "ro.client", "secret");
+          //  var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "password", "api1");
 
             var client = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);

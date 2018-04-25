@@ -25,6 +25,7 @@ namespace MvcClient
 
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
+                    options.Scope.Add("MyWebAppScope_v2");
 
                     options.ClientId = "mvc";
                     options.SaveTokens = true;
