@@ -7,7 +7,7 @@ using IdentityServer4.Test;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace QuickstartIdentityServer
+namespace IdentityServerWithAspNetIdentity
 {
     public class Config
     {
@@ -66,17 +66,17 @@ namespace QuickstartIdentityServer
                     ClientId = "mvc",
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                     RequireConsent = false,
 
-                    ClientSecrets = 
+                    ClientSecrets =
                     {
                         new Secret("secret".Sha256())
                     },
 
                     RedirectUris = { "http://localhost:5002/signin-oidc" },
                     PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
-                    BackChannelLogoutUri = "http://localhost:5002",
-                    FrontChannelLogoutUri = "http://localhost:5002",
-                    AllowedScopes = 
+
+                    AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
