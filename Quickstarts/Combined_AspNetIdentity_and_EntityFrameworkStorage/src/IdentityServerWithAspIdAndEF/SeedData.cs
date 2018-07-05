@@ -46,9 +46,28 @@ namespace IdentityServerWithAspIdAndEF
                         {
                             throw new Exception(result.Errors.First().Description);
                         }
+                        alice = userMgr.FindByNameAsync("alice").Result;
 
+                        try
+                        {
+                            result = userMgr.AddClaimsAsync(alice, new Claim[]
+                            {
+                                new Claim(JwtClaimTypes.Name, "Alice Smith"){}
+
+                            }).Result;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            // throw;
+                        }
+
+                        if (!result.Succeeded)
+                        {
+                            throw new Exception(result.Errors.First().Description);
+                        }
                         result = userMgr.AddClaimsAsync(alice, new Claim[]{
-                            new Claim(JwtClaimTypes.Name, "Alice Smith"),
+                           // new Claim(JwtClaimTypes.Name, "Alice Smith"),
                             new Claim(JwtClaimTypes.GivenName, "Alice"),
                             new Claim(JwtClaimTypes.FamilyName, "Smith"),
                             new Claim(JwtClaimTypes.Email, "AliceSmith@email.com"),
@@ -107,7 +126,7 @@ namespace IdentityServerWithAspIdAndEF
             Console.WriteLine();
         }
 
-        private static void EnsureSeedData(ConfigurationDbContext context)
+        public static void EnsureSeedData(ConfigurationDbContext context)
         {
             if (!context.Clients.Any())
             {
@@ -115,8 +134,9 @@ namespace IdentityServerWithAspIdAndEF
                 foreach (var client in Config.GetClients().ToList())
                 {
                     context.Clients.Add(client.ToEntity());
+                    context.SaveChanges();
                 }
-                context.SaveChanges();
+               // context.SaveChanges();
             }
             else
             {

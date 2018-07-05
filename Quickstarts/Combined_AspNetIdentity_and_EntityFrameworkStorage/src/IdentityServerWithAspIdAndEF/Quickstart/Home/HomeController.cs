@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.Services;
+using IdentityServerWithAspIdAndEF;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -12,10 +14,18 @@ namespace IdentityServer4.Quickstart.UI
     public class HomeController : Controller
     {
         private readonly IIdentityServerInteractionService _interaction;
+        private readonly ConfigurationDbContext _context;
 
-        public HomeController(IIdentityServerInteractionService interaction)
+        public HomeController(IIdentityServerInteractionService interaction, ConfigurationDbContext context)
         {
             _interaction = interaction;
+            this._context = context;
+        }
+
+        public IActionResult Seed()
+        {
+            SeedData.EnsureSeedData(_context);
+            return Ok("seeded");
         }
 
         public IActionResult Index()
