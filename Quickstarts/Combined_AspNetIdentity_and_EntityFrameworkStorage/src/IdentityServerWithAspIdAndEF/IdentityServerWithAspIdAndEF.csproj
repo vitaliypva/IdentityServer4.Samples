@@ -1,9 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-IdentityServerWithAspNetIdentity-04C6939F-E672-4E56-B4A5-5F064EB67F23</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20180109200721_InitialIdentityServerConfigurationDbMigration.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20180109200721_InitialIdentityServerConfigurationDbMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20180704233239_update-initial.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20180704233239_update-initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20180705001306_InitialUdentityServerCinfig.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20180705001306_InitialUdentityServerCinfig.Designer.cs" />
+  </ItemGroup>
 
 
   <ItemGroup>
