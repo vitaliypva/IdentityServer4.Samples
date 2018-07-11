@@ -7,4 +7,5 @@ namespace IdentityServerWithAspIdAndEF.Models
     public class ApplicationUser : IdentityUser<Guid>
     {
     }
+   
 }

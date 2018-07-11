@@ -25,7 +25,7 @@ namespace IdentityServerWithAspIdAndEF
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -84,6 +84,8 @@ namespace IdentityServerWithAspIdAndEF
                 {
                     options.ClientId = "708996912208-9m4dkjb5hscn7cjrn5u0r4tbgkbj1fko.apps.googleusercontent.com";
                     options.ClientSecret = "wdfPY6t8H8cecgjlxud__4Gh";
+
+
                 })
                 .AddOpenIdConnect("oidc", "OpenID Connect", options =>
                 {
