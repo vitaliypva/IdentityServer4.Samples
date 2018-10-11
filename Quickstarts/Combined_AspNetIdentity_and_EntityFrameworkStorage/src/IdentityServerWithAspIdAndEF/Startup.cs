@@ -9,6 +9,7 @@ using IdentityServerWithAspIdAndEF.Data;
 using IdentityServerWithAspIdAndEF.Models;
 using System.Reflection;
 using Microsoft.IdentityModel.Tokens;
+using IdentityServerWithAspIdAndEF.Infrastucture;
 
 namespace IdentityServerWithAspIdAndEF
 {
@@ -68,7 +69,9 @@ namespace IdentityServerWithAspIdAndEF
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                     // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
-                });
+                })
+                .AddProfileService<IdentityWithAdditionalClaimsProfileService>()
+                ; 
 
             if (Environment.IsDevelopment())
             {
